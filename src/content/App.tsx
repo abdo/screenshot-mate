@@ -4,7 +4,7 @@
 import './App.css';
 
 const App = () => {
-  return <div className='App'>I'm a Script!</div>;
+  return <div className='App' />;
 };
 
 export default App;

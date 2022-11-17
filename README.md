@@ -4,6 +4,7 @@
 
 - Run `yarn run watch` in the terminal
 - In browser extensions load unpacked the dist folder [chrome://extensions/](chrome://extensions/)
+- When you change something in the code, package will be rebuilt, then in the browser click `command+e` to trigger reload
 
 When needed (i.e deployment) add permissions to the manifest file
 
