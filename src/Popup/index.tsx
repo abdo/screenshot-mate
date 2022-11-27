@@ -1,7 +1,7 @@
 /// <reference types="chrome" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import logo from '../logo.svg';
+import logo from '../assets/world.svg';
 import '../App.css';
 import getMediaUrl from '../utils/helpers/getMediaUrl';
 import { useEffect, useState } from 'react';
@@ -34,6 +34,12 @@ function App() {
     chrome.storage.onChanged.addListener(parseAndSetStorageValues);
   }, []);
 
+  const onGoToOptions = () => {
+    chrome.tabs.create({
+      url: chrome.runtime.getURL('index.html#options'),
+    });
+  };
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -41,6 +47,7 @@ function App() {
         <p>Hello, World!</p>
         <p>I'm a Popup!</p>
         {isOnline ? 'You are online' : 'You are offline'}
+        <button onClick={onGoToOptions}>Go to options</button>
       </header>
     </div>
   );

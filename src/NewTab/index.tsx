@@ -1,7 +1,7 @@
 /// <reference types="chrome" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import logo from '../logo.svg';
+import world from '../assets/world.svg';
 import '../App.css';
 import getMediaUrl from '../utils/helpers/getMediaUrl';
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <img src={`${getMediaUrl(logo)}`} className='App-logo' alt='logo' />
+        <img src={`${getMediaUrl(world)}`} className='App-logo' alt='world' />
         <p>Hello, World!</p>
         <p>I'm a Newtab!</p>
       </header>
