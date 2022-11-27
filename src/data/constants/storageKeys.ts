@@ -1,4 +1,5 @@
 enum StorageKeys {
+  isOnline,
   exampleKey
 };
 
@@ -10,5 +11,6 @@ export enum ExampleKeyOptions {
 };
 
 export const defaultStorageValues = {
+  [StorageKeys.isOnline]: true,
   [StorageKeys.exampleKey]: ExampleKeyOptions.option1,
 };

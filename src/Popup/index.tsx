@@ -5,13 +5,17 @@ import logo from '../logo.svg';
 import '../App.css';
 import getMediaUrl from '../utils/helpers/getMediaUrl';
 import { useEffect, useState } from 'react';
-import { defaultStorageValues } from '../data/constants/storageKeys';
+import StorageKeys, {
+  defaultStorageValues,
+} from '../data/constants/storageKeys';
 import parseStorageValues from '../utils/helpers/parseStorageValues';
 
 function App() {
   const [currentStorageValues, setCurrentStorageValues] = useState<{
     [key: string]: any;
   }>(defaultStorageValues);
+
+  const { [StorageKeys.isOnline]: isOnline } = currentStorageValues;
 
   const parseAndSetStorageValues = (values: chrome.storage.StorageChange) => {
     const parsedValues = parseStorageValues(values);
@@ -30,14 +34,13 @@ function App() {
     chrome.storage.onChanged.addListener(parseAndSetStorageValues);
   }, []);
 
-  console.log('currentStorageValues', currentStorageValues);
-
   return (
     <div className='App'>
       <header className='App-header'>
         <img src={`${getMediaUrl(logo)}`} className='App-logo' alt='logo' />
         <p>Hello, World!</p>
         <p>I'm a Popup!</p>
+        {isOnline ? 'You are online' : 'You are offline'}
       </header>
     </div>
   );

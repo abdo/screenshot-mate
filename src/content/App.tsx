@@ -2,7 +2,9 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import { useEffect, useState } from 'react';
-import { defaultStorageValues } from '../data/constants/storageKeys';
+import StorageKeys, {
+  defaultStorageValues,
+} from '../data/constants/storageKeys';
 import parseStorageValues from '../utils/helpers/parseStorageValues';
 import './App.css';
 
@@ -20,15 +22,28 @@ const App = () => {
     }));
   };
 
+  const onChangeOnlineState = (value: boolean) => {
+    chrome.storage.sync.set({
+      [StorageKeys.isOnline]: value,
+    });
+  };
+
   useEffect(() => {
     // get storage values in the beginning
     chrome.storage.sync.get(null, parseAndSetStorageValues);
 
     // listener for storage values
     chrome.storage.onChanged.addListener(parseAndSetStorageValues);
+
+    // Detect when offline
+    window.addEventListener('offline', () => onChangeOnlineState(false));
+    window.addEventListener('online', () => onChangeOnlineState(true));
   }, []);
 
-  console.log('currentStorageValues', currentStorageValues);
+  // Detect when offline
+  useEffect(() => {
+    onChangeOnlineState(navigator.onLine);
+  }, [navigator.onLine]);
 
   return <div className='App' />;
 };
