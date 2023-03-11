@@ -7,13 +7,13 @@ import getMediaUrl from '../utils/helpers/getMediaUrl';
 import { useEffect, useState } from 'react';
 import StorageKeys, {
   defaultStorageValues,
+  storageValuesTypes,
 } from '../data/constants/storageKeys';
 import parseStorageValues from '../utils/helpers/parseStorageValues';
 
 function App() {
-  const [currentStorageValues, setCurrentStorageValues] = useState<{
-    [key: string]: any;
-  }>(defaultStorageValues);
+  const [currentStorageValues, setCurrentStorageValues] =
+    useState<storageValuesTypes>(defaultStorageValues);
 
   const { [StorageKeys.isOnline]: isOnline } = currentStorageValues;
 

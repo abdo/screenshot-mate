@@ -4,14 +4,14 @@
 import { useEffect, useState } from 'react';
 import StorageKeys, {
   defaultStorageValues,
+  storageValuesTypes,
 } from '../data/constants/storageKeys';
 import parseStorageValues from '../utils/helpers/parseStorageValues';
 import './App.css';
 
 const App = () => {
-  const [currentStorageValues, setCurrentStorageValues] = useState<{
-    [key: string]: any;
-  }>(defaultStorageValues);
+  const [currentStorageValues, setCurrentStorageValues] =
+    useState<storageValuesTypes>(defaultStorageValues);
 
   const parseAndSetStorageValues = (values: chrome.storage.StorageChange) => {
     const parsedValues = parseStorageValues(values);
