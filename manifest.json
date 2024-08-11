@@ -7,10 +7,10 @@
     "service_worker": "background.js"
   },
   "commands": {
-    "reload-e": {
+    "reload-q": {
       "suggested_key": {
-        "default": "Ctrl+E",
-        "mac": "Command+E"
+        "default": "Ctrl+Q",
+        "mac": "Command+Q"
       },
       "description": "Reloads extension package in the browser, helpful in development"
     }

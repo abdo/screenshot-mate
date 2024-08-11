@@ -15,16 +15,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 });
 
 chrome.commands.onCommand.addListener((shortcut) => {
-  if (shortcut === 'reload-e') {
-    chrome.runtime.reload();
-  }
-});
-
-// the extension reloads when the browser is focused, only in development
-chrome.windows.onFocusChanged.addListener(() => {
-  const isDevMode = !('update_url' in chrome.runtime.getManifest());
-
-  if (isDevMode) {
+  if (shortcut === "reload-q") {
     chrome.runtime.reload();
   }
 });
