@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "A react extension",
+  "name": "Picnotate: Next Level Web Screenshots",
   "version": "1.0.0",
   "permissions": ["storage"],
   "background": {
@@ -19,9 +19,6 @@
     "default_title": "Popup",
     "default_popup": "index.html#popup",
     "default_icon": "logo.png"
-  },
-  "chrome_url_overrides": {
-    "newtab": "index.html#newtab"
   },
   "content_scripts": [
     {

@@ -1,4 +1,4 @@
-# Extension with React and Typescript
+# Picnotate
 
 ### For development:
 

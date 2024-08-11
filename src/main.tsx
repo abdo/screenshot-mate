@@ -1,22 +1,17 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import './main.css';
-import Popup from './Popup';
-import NewTab from './NewTab';
-import OptionsPage from './pages/Options';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./main.css";
+import Popup from "./Popup";
+import OptionsPage from "./pages/Options";
 
 let RenderedComponent = () => <div />;
 
 switch (window.location.hash) {
-  case '#newtab':
-    RenderedComponent = NewTab;
-    break;
-
-  case '#popup':
+  case "#popup":
     RenderedComponent = Popup;
     break;
 
-  case '#options':
+  case "#options":
     RenderedComponent = OptionsPage;
     break;
 
@@ -24,8 +19,8 @@ switch (window.location.hash) {
     break;
 }
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RenderedComponent />
-  </React.StrictMode>,
+  </React.StrictMode>
 );

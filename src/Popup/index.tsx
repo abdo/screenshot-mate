@@ -1,15 +1,13 @@
 /// <reference types="chrome" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import logo from '../assets/world.svg';
-import '../App.css';
-import getMediaUrl from '../utils/helpers/getMediaUrl';
-import { useEffect, useState } from 'react';
+import "../App.css";
+import { useEffect, useState } from "react";
 import StorageKeys, {
   defaultStorageValues,
   storageValuesTypes,
-} from '../data/constants/storageKeys';
-import parseStorageValues from '../utils/helpers/parseStorageValues';
+} from "../data/constants/storageKeys";
+import parseStorageValues from "../utils/helpers/parseStorageValues";
 
 function App() {
   const [currentStorageValues, setCurrentStorageValues] =
@@ -36,19 +34,14 @@ function App() {
 
   const onGoToOptions = () => {
     chrome.tabs.create({
-      url: chrome.runtime.getURL('index.html#options'),
+      url: chrome.runtime.getURL("index.html#options"),
     });
   };
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={`${getMediaUrl(logo)}`} className='App-logo' alt='logo' />
-        <p>Hello, World!</p>
-        <p>I'm a Popup!</p>
-        {isOnline ? 'You are online' : 'You are offline'}
-        <button onClick={onGoToOptions}>Go to options</button>
-      </header>
+    <div className="App">
+      <p>I'm a Popup!</p>
+      <button onClick={onGoToOptions}>Go to options</button>
     </div>
   );
 }
